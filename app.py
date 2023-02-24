@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from flask import Flask, session, render_template, Response
+from flask import Flask, session, render_template
 from  datetime import datetime
 from secrets import token_hex
 from pathlib import Path
@@ -14,7 +14,6 @@ app.config['SECRET_KEY'] = token_hex(16)  # note: doing it like this means, that
 
 
 
-# Image analysis 
 @app.get("/")
 @app.get("/index")
 def index():
@@ -35,9 +34,9 @@ def contact_info():
 def my_tools():
     return render_template("projects.html")
 
-# if __name__ == "__main__":
-#     # Listen on all public IPs
-#     # https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
-#     app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    # Listen on all public IPs
+    # https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
+    app.run()
 
 # write in .bat "flask run --host=0.0.0.0"
