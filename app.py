@@ -9,7 +9,7 @@ from pathlib import Path
 static_folder = str(Path("./static").resolve())
 template_folder = str(Path("./templates").resolve())
 
-app = Flask('cell_counting', static_url_path='/static', template_folder=template_folder, static_folder=static_folder)
+app = Flask('personal_web', static_url_path='/static', template_folder=template_folder, static_folder=static_folder)
 app.config['SECRET_KEY'] = token_hex(16)  # note: doing it like this means, that session dies between server restarts
 
 
@@ -35,9 +35,9 @@ def contact_info():
 def my_tools():
     return render_template("projects.html")
 
-if __name__ == "__main__":
-    # Listen on all public IPs
-    # https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
-    app.run(host="0.0.0.0", port=5000)
+# if __name__ == "__main__":
+#     # Listen on all public IPs
+#     # https://stackoverflow.com/questions/7023052/configure-flask-dev-server-to-be-visible-across-the-network
+#     app.run(host="0.0.0.0", port=5000)
 
 # write in .bat "flask run --host=0.0.0.0"
